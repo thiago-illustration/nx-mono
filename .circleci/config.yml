@@ -3,6 +3,20 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
 
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Run Affected Builds
+          command: yarn nx affected --target=build --base=main
+      - run:
+          name: Run Affected Unit Tests
+          command: yarn nx affected --target=test
+
 workflows:
   heroku_deploy:
     jobs:
@@ -13,3 +27,4 @@ workflows:
           filters:
             branches:
               only: main # only run deploy-via-git job on main branch
+
