@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn run nx affected:lint && yarn run nx affected:test
