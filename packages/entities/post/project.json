@@ -1,0 +1,32 @@
+{
+  "root": "packages/entities/post",
+  "sourceRoot": "packages/entities/post/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/entities/post",
+        "main": "packages/entities/post/src/index.ts",
+        "tsConfig": "packages/entities/post/tsconfig.lib.json",
+        "assets": ["packages/entities/post/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/entities/post/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/entities/post"],
+      "options": {
+        "jestConfig": "packages/entities/post/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:entity"]
+}

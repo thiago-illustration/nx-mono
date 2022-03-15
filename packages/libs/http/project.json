@@ -1,0 +1,32 @@
+{
+  "root": "packages/libs/http",
+  "sourceRoot": "packages/libs/http/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/libs/http",
+        "main": "packages/libs/http/src/index.ts",
+        "tsConfig": "packages/libs/http/tsconfig.lib.json",
+        "assets": ["packages/libs/http/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/libs/http/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/libs/http"],
+      "options": {
+        "jestConfig": "packages/libs/http/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:lib"]
+}

@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@portals/entities/post": ["packages/entities/post/src/index.ts"],
+      "@portals/entities/user": ["packages/entities/user/src/index.ts"],
+      "@portals/libs/auth": ["packages/libs/auth/src/index.ts"],
+      "@portals/libs/http": ["packages/libs/http/src/index.ts"],
+      "@portals/ui": ["packages/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
