@@ -4,7 +4,7 @@ orbs:
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
 
 jobs:
- build:
+  build:
     steps:
       - checkout
       - run:
@@ -21,11 +21,10 @@ jobs:
     steps:
       - checkout
       - heroku/install
-      - heroku/deploy-via-git 
+      - heroku/deploy-via-git
 
 workflows:
   heroku_deploy:
     jobs:
       - build
       - deploy
-
