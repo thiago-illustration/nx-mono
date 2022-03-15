@@ -4,7 +4,7 @@ orbs:
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
 
 jobs:
-  build:
+ build:
     steps:
       - checkout
       - run:
@@ -16,15 +16,16 @@ jobs:
       - run:
           name: Run Affected Unit Tests
           command: yarn nx affected --target=test
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git 
 
 workflows:
   heroku_deploy:
     jobs:
       - build
-      - heroku/deploy-via-git:
-          requires:
-            - build # only run deploy-via-git job if the build job has completed
-          filters:
-            branches:
-              only: main # only run deploy-via-git job on main branch
+      - deploy
 
