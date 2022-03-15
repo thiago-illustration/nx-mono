@@ -3,7 +3,7 @@ import { Button } from '@portals/ui';
 export function Index() {
   return (
     <div>
-      <h1>Hello from Agent</h1>
+      <h1>Hello from Agent!!</h1>
       <Button />
     </div>
   );
