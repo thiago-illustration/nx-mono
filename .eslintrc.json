@@ -14,7 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "type:app",
-                "notDependOnLibsWithTags": ["type:app"]
+                "notDependOnLibsWithTags": ["type:app", "type:ui"]
               },
               {
                 "sourceTag": "type:entity",
