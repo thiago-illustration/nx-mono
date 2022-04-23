@@ -7,7 +7,7 @@ jobs:
       - image: cimg/node:lts-browsers
     steps:
       - checkout
-      - run: npm ci
+      - run: rm -rf node_modules && yarn install --frozen-lockfile
       - nx/set-shas
 
       - run: npx nx workspace-lint
