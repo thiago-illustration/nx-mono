@@ -1,3 +1,3 @@
 export function entitiesPost(): string {
-  return 'entities-post';
+  return 'entities-post!';
 }
